@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkEase | Admin Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <h1>ParkEase</h1>
+            <h2>Admin Login</h2>
+            <p>Sign in to manage your parking system.</p>
+
+            <form id="adminLoginForm">
+                <label for="adminEmail">Email</label>
+                <input
+                    type="email"
+                    id="adminEmail"
+                    placeholder="Enter admin email"
+                    required
+                >
+
+                <label for="adminPassword">Password</label>
+                <input
+                    type="password"
+                    id="adminPassword"
+                    placeholder="Enter password"
+                    required
+                >
+
+                <button type="submit" class="btn btn-primary">
+                    Login as Admin
+                </button>
+            </form>
+
+            <p id="adminMessage"></p>
+            <a href="index.html">Back to Home</a>
+        </div>
+    </div>
+
+    <script src="admin-login.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkEase | Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <h2>ParkEase Admin</h2>
+        <div>
+            <span id="adminName">Admin</span>
+            <button class="btn btn-outline" id="adminLogoutBtn">
+                Logout
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Admin Dashboard</h1>
+        <p>Manage your smart parking system.</p>
+
+        <section class="features-grid">
+            <div class="feature-card">
+                <h3>Total Parking Locations</h3>
+                <h2 id="totalLocations">0</h2>
+            </div>
+
+            <div class="feature-card">
+                <h3>Total Parking Slots</h3>
+                <h2 id="totalSlots">0</h2>
+            </div>
+
+            <div class="feature-card">
+                <h3>Available Slots</h3>
+                <h2 id="availableSlots">0</h2>
+            </div>
+
+            <div class="feature-card">
+                <h3>Total Bookings</h3>
+                <h2 id="totalBookings">0</h2>
+            </div>
+        </section>
+
+       
+<section>
+    <h2>Manage Parking Locations</h2>
+
+    <div class="feature-card">
+        <h3>Add New Parking Location</h3>
+
+        <form id="addParkingForm">
+            <label for="parkingLocation">Location Name</label>
+            <input
+                type="text"
+                id="parkingLocation"
+                placeholder="Enter parking location"
+                required
+            >
+
+            <label for="totalParkingSlots">Total Slots</label>
+            <input
+                type="number"
+                id="totalParkingSlots"
+                min="1"
+                required
+            >
+
+            <label for="availableParkingSlots">Available Slots</label>
+            <input
+                type="number"
+                id="availableParkingSlots"
+                min="0"
+                required
+            >
+
+            <label for="parkingPrice">Price Per Hour (₹)</label>
+            <input
+                type="number"
+                id="parkingPrice"
+                min="0"
+                step="0.01"
+                required
+            >
+
+            <button type="submit" class="btn btn-primary">
+                Add Parking Location
+            </button>
+        </form>
+
+        <p id="parkingFormMessage"></p>
+    </div>
+
+    <h3>Existing Parking Locations</h3>
+    <div id="adminParkingContainer"></div>
+</section>
+
+
+        <section>
+            <h2>All Bookings</h2>
+            <div id="adminBookingsContainer"></div>
+        </section>
+
+        <section>
+            <h2>Registered Users</h2>
+            <div id="adminUsersContainer"></div>
+        </section>
+    </main>
+
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>

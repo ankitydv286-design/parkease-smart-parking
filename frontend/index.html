@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ParkEase | Smart Parking Finder</title>
+
+    <meta name="description"
+        content="Find available parking spaces, compare hourly prices and park smarter with ParkEase.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="container nav-content">
+
+            <a href="#" class="logo">
+                <span class="logo-icon">P</span>
+                <span>Park<span class="logo-highlight">Ease</span></span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#parking">Find Parking</a>
+                <a href="#myBookings">My Bookings</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="admin-login.html">Admin Login</a>
+            </nav>
+
+            <div class="nav-actions">
+                <span id="profileName" style="display: none;"></span>
+
+                <button class="btn btn-outline" id="loginBtn">
+                    Log In
+                </button>
+
+                <button class="btn btn-primary" id="signupBtn">
+                    Sign Up
+                </button>
+
+                <button class="btn btn-outline" id="logoutBtn" style="display: none;">
+                    Logout
+                </button>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                ☰
+            </button>
+
+        </div>
+    </header>
+
+    <!-- Admin Dashboard Placeholder -->
+   
+<!-- Admin Dashboard -->
+<section id="adminDashboardSection" style="display: none;">
+
+    <header class="navbar">
+        <h2>ParkEase Admin</h2>
+        <div>
+            <span id="adminName">Admin</span>
+
+            <button class="btn btn-outline" id="adminLogoutBtn">
+                Logout
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <h1>Admin Dashboard</h1>
+        <p>Manage your smart parking system.</p>
+
+        <!-- Dashboard Statistics -->
+        <section class="features-grid">
+
+            <div class="feature-card">
+                <h3>Total Parking Locations</h3>
+                <h2 id="totalLocations">0</h2>
+            </div>
+
+            <div class="feature-card">
+                <h3>Total Parking Slots</h3>
+                <h2 id="totalSlots">0</h2>
+            </div>
+
+            <div class="feature-card">
+                <h3>Available Slots</h3>
+                <h2 id="availableSlots">0</h2>
+            </div>
+
+            <div class="feature-card">
+                <h3>Total Bookings</h3>
+                <h2 id="totalBookings">0</h2>
+            </div>
+
+        </section>
+
+        <!-- Manage Parking -->
+        <section>
+
+            <h2>Manage Parking Locations</h2>
+
+            <div class="feature-card">
+
+                <h3>Add New Parking Location</h3>
+
+                <form id="addParkingForm">
+
+                    <label for="parkingLocation">Location Name</label>
+                    <input
+                        type="text"
+                        id="parkingLocation"
+                        placeholder="Enter parking location"
+                        required
+                    >
+
+                    <label for="totalParkingSlots">Total Slots</label>
+                    <input
+                        type="number"
+                        id="totalParkingSlots"
+                        min="1"
+                        required
+                    >
+
+                    <label for="availableParkingSlots">Available Slots</label>
+                    <input
+                        type="number"
+                        id="availableParkingSlots"
+                        min="0"
+                        required
+                    >
+
+                    <label for="parkingPrice">Price Per Hour (₹)</label>
+                    <input
+                        type="number"
+                        id="parkingPrice"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+
+                    <button type="submit" class="btn btn-primary">
+                        Add Parking Location
+                    </button>
+
+                </form>
+
+                <p id="parkingFormMessage"></p>
+
+            </div>
+
+            <h3>Existing Parking Locations</h3>
+            <div id="adminParkingContainer"></div>
+
+        </section>
+
+        <!-- All Bookings -->
+        <section>
+            <h2>All Bookings</h2>
+            <div id="adminBookingsContainer"></div>
+        </section>
+
+        <!-- Registered Users -->
+        <section>
+            <h2>Registered Users</h2>
+            <div id="adminUsersContainer"></div>
+        </section>
+
+    </main>
+
+</section>
+
+    <!-- Main Website -->
+    <main id="mainWebsite">
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <span class="eyebrow">
+                        SMART PARKING. SMARTER CITIES.
+                    </span>
+
+                    <h1>
+                        Find Your Perfect
+                        <span>Parking Space.</span>
+                    </h1>
+
+                    <p>
+                        Stop wasting time searching for parking.
+                        Discover available parking spaces, compare prices
+                        and park with confidence.
+                    </p>
+
+                    <a href="#parking" class="btn btn-primary hero-btn">
+                        Explore Parking →
+                    </a>
+
+                    <div class="hero-stats">
+
+                        <div>
+                            <h3>24/7</h3>
+                            <p>Easy Access</p>
+                        </div>
+
+                        <div>
+                            <h3>Smart</h3>
+                            <p>Parking Search</p>
+                        </div>
+
+                        <div>
+                            <h3>Fast</h3>
+                            <p>Slot Discovery</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-visual">
+
+                    <div class="parking-illustration">
+                        <div class="parking-symbol">P</div>
+                        <div class="parking-line"></div>
+                        <div class="parking-car">🚗</div>
+                        <div class="parking-label">
+                            <span class="live-dot"></span>
+                            Smart Parking Available
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section" id="parking">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">PARKING LOCATIONS</span>
+                    <h2>Find Available Parking</h2>
+                    <p>Choose your preferred location and explore available slots.</p>
+                </div>
+
+                <div class="search-box">
+
+                    <div class="search-input">
+                        <span>📍</span>
+                        <input type="text" id="searchInput"
+                            placeholder="Search parking location...">
+                    </div>
+
+                    <button class="btn btn-primary" id="searchBtn">
+                        Search Parking
+                    </button>
+
+                </div>
+
+                <div class="parking-summary">
+
+                    <div>
+                        <span class="summary-label">Available Locations</span>
+                        <h3 id="locationCount">0</h3>
+                    </div>
+
+                    <div>
+                        <span class="summary-label">Available Slots</span>
+                        <h3 id="availableCount">0</h3>
+                    </div>
+
+                    <div>
+                        <span class="summary-label">Total Slots</span>
+                        <h3 id="totalCount">0</h3>
+                    </div>
+
+                </div>
+
+                <div id="parkingContainer" class="parking-grid">
+                    <p class="loading-message">Loading parking locations...</p>
+                </div>
+
+                <p id="errorMessage" class="error-message"></p>
+
+            </div>
+
+        </section>
+
+        <!-- My Bookings Section -->
+        <section class="features-section" id="myBookings">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">YOUR PARKING ACTIVITY</span>
+                    <h2>My Bookings</h2>
+                    <p>View your parking reservations and booking history.</p>
+                </div>
+
+                <div id="bookingsContainer">
+
+                    <p class="loading-message">
+                        Please log in to view your bookings.
+                    </p>
+
+                </div>
+
+                <p id="bookingsMessage" class="error-message"></p>
+
+            </div>
+
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="about">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">WHY PARKEASE?</span>
+                    <h2>Parking Made Simple</h2>
+                    <p>A smarter way to find and manage parking spaces.</p>
+                </div>
+
+                <div class="features-grid">
+
+                    <article class="feature-card">
+                        <div class="feature-icon">📍</div>
+                        <h3>Easy Discovery</h3>
+                        <p>Find parking locations without wasting valuable time.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">🅿️</div>
+                        <h3>Slot Availability</h3>
+                        <p>View the available and total parking slots at each location.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">💳</div>
+                        <h3>Price Information</h3>
+                        <p>Compare hourly parking prices before choosing a location.</p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+
+        <div class="container footer-content">
+
+            <div>
+                <a href="#" class="logo footer-logo">
+                    <span class="logo-icon">P</span>
+                    <span>Park<span class="logo-highlight">Ease</span></span>
+                </a>
+
+                <p>Making urban parking smarter, simpler and better.</p>
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 ParkEase. All rights reserved.
+            </div>
+
+        </div>
+
+    </footer>
+
+   <script src="script.js"></script>
+<script src="admin-dashboard.js"></script>
+
+</body>
+</html>
