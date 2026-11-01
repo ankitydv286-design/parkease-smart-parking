@@ -1,5 +1,5 @@
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://parkease-backend-ilke.onrender.com/api";
 
 const parkingContainer = document.getElementById("parkingContainer");
 const searchInput = document.getElementById("searchInput");

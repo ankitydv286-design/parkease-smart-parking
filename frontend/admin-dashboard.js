@@ -2,7 +2,7 @@
 // ParkEase Admin Dashboard
 
 // Use window.API_URL to avoid duplicate API_URL declarations
-window.API_URL = "http://localhost:5000/api";
+window.API_URL = "https://parkease-backend-ilke.onrender.com/api";
 
 const adminDashboardSection = document.getElementById("adminDashboardSection");
 
